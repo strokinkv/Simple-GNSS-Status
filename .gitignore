@@ -6,3 +6,6 @@ local.properties
 *.iml
 .idea/
 .codex-remote-attachments/
+.local/
+*.keystore
+*.jks
