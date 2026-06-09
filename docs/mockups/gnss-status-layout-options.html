@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GNSS Status Mockup</title>
+  <style>
+    :root { color-scheme: light; font-family: Arial, sans-serif; }
+    body { margin: 0; background: #f4f5f7; color: #17202a; }
+    main { max-width: 1120px; margin: 0 auto; padding: 24px; }
+    h1 { font-size: 24px; margin: 0 0 8px; }
+    p { margin: 0 0 18px; color: #52606d; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+    .phone { background: #101820; border-radius: 28px; padding: 14px; box-shadow: 0 12px 30px rgba(0,0,0,.18); }
+    .screen { background: #ffffff; border-radius: 20px; overflow: hidden; min-height: 640px; }
+    .top { padding: 18px; border-bottom: 1px solid #e3e7ea; display: flex; justify-content: space-between; align-items: center; }
+    .title { font-weight: 700; font-size: 18px; }
+    .badge { font-size: 12px; color: #0b6847; background: #ddf6ec; padding: 4px 8px; border-radius: 999px; }
+    .summary { padding: 14px 18px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .metric { border: 1px solid #e3e7ea; border-radius: 8px; padding: 10px; }
+    .label { color: #6b7785; font-size: 12px; }
+    .value { font-weight: 700; font-size: 16px; margin-top: 4px; }
+    .section { padding: 0 18px 14px; }
+    .row { display: grid; grid-template-columns: 48px 52px 1fr 58px; gap: 8px; align-items: center; padding: 10px 0; border-bottom: 1px solid #edf0f2; font-size: 13px; }
+    .bar { height: 8px; background: #e5e9ed; border-radius: 8px; overflow: hidden; }
+    .bar span { display: block; height: 100%; background: #1d7a8c; }
+    .small { font-size: 12px; color: #6b7785; }
+    .map { margin: 0 18px 14px; border: 1px solid #e3e7ea; border-radius: 8px; height: 150px; background:
+      radial-gradient(circle at 50% 50%, #1d7a8c 0 4px, transparent 5px),
+      radial-gradient(circle at 42% 44%, rgba(29,122,140,.22) 0 32px, transparent 33px),
+      linear-gradient(#f8fafb, #eef2f5); position: relative; }
+    .map:before, .map:after { content: ""; position: absolute; background: #d6dde3; }
+    .map:before { width: 1px; height: 100%; left: 50%; }
+    .map:after { height: 1px; width: 100%; top: 50%; }
+    .caption { margin-top: 12px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Варианты главного экрана GNSS Status</h1>
+    <p>Выберите направление: максимально простой список или компактная диагностика с качеством фикса.</p>
+    <div class="grid">
+      <div>
+        <div class="phone"><div class="screen">
+          <div class="top"><div class="title">GNSS Status</div><div class="badge">3D Fix</div></div>
+          <div class="summary">
+            <div class="metric"><div class="label">Координаты</div><div class="value">55.7512, 37.6184</div></div>
+            <div class="metric"><div class="label">Точность</div><div class="value">±4.8 м</div></div>
+            <div class="metric"><div class="label">Спутники</div><div class="value">18 / 31</div></div>
+            <div class="metric"><div class="label">Средний C/N0</div><div class="value">31 dB-Hz</div></div>
+          </div>
+          <div class="section">
+            <div class="row"><b>G12</b><span>GPS</span><div class="bar"><span style="width:82%"></span></div><b>39</b></div>
+            <div class="row"><b>R05</b><span>GLON</span><div class="bar"><span style="width:69%"></span></div><b>33</b></div>
+            <div class="row"><b>E19</b><span>GAL</span><div class="bar"><span style="width:76%"></span></div><b>36</b></div>
+            <div class="row"><b>C08</b><span>BDS</span><div class="bar"><span style="width:48%"></span></div><b>23</b></div>
+          </div>
+        </div></div>
+        <div class="caption">A. Минимальный список</div>
+      </div>
+      <div>
+        <div class="phone"><div class="screen">
+          <div class="top"><div class="title">Навигация</div><div class="badge">A-GPS OK</div></div>
+          <div class="summary">
+            <div class="metric"><div class="label">Fix</div><div class="value">3D, 8 used</div></div>
+            <div class="metric"><div class="label">HDOP / VDOP</div><div class="value">0.9 / 1.4</div></div>
+            <div class="metric"><div class="label">Скорость</div><div class="value">0.4 м/с</div></div>
+            <div class="metric"><div class="label">Высота</div><div class="value">156 м</div></div>
+          </div>
+          <div class="map"></div>
+          <div class="section">
+            <div class="row"><b>G12</b><span>GPS</span><div class="bar"><span style="width:82%"></span></div><b>39</b></div>
+            <div class="row"><b>E19</b><span>GAL</span><div class="bar"><span style="width:76%"></span></div><b>36</b></div>
+            <div class="row"><b>R05</b><span>GLON</span><div class="bar"><span style="width:69%"></span></div><b>33</b></div>
+          </div>
+        </div></div>
+        <div class="caption">B. Диагностика фикса</div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
